@@ -51,4 +51,9 @@ public class StudentController {
     public List<String> getAllStudentsByGrade(@PathVariable(name = "grade") int grade) {
         return studentService.getAllStudentsByGrade(grade);
     }
+
+    @DeleteMapping("/remove/{admission}")
+    public String removeStudent(@PathVariable(name = "admission") String admission) {
+        return studentService.deleteStudent(admission);
+    }
 }

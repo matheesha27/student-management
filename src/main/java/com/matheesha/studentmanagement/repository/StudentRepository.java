@@ -15,4 +15,10 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     @Query(value = "SELECT d.name FROM Students d WHERE d.grade = :grade", nativeQuery = true)
     List<String> getStudentsByGrade(@Param("grade") int grade);
+
+//    @Modifying
+//    @Query(value = "DELETE FROM Students d WHERE d.id = (SELECT s.id FROM Students s WHERE s.admissionNumber = :admission)", nativeQuery = true)
+//    void deleteStudent(String admission);
+
+    void deleteByAdmissionNumber(String admission);
 }

@@ -14,4 +14,6 @@ public interface StudentService {
     StudentDto getStudentDetailsByAdmission(String admission);
 
     List<String> getAllStudentsByGrade(int grade);
+
+    String deleteStudent(String admission);
 }

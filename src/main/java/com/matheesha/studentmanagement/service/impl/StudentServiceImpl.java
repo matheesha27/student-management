@@ -6,6 +6,7 @@ import com.matheesha.studentmanagement.repository.StudentRepository;
 import com.matheesha.studentmanagement.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,5 +52,11 @@ public class StudentServiceImpl implements StudentService {
 
     public List<String> getAllStudentsByGrade(int grade) {
         return studentRepository.getStudentsByGrade(grade);
+    }
+
+    @Transactional
+    public String deleteStudent(String admission) {
+        studentRepository.deleteByAdmissionNumber(admission);
+        return "Deleted the student entry with admission number: " + admission;
     }
 }
