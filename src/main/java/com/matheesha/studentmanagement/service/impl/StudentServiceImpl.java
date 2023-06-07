@@ -2,6 +2,7 @@ package com.matheesha.studentmanagement.service.impl;
 
 import com.matheesha.studentmanagement.dto.StudentDto;
 import com.matheesha.studentmanagement.entity.Student;
+import com.matheesha.studentmanagement.repository.ModuleRepository;
 import com.matheesha.studentmanagement.repository.StudentRepository;
 import com.matheesha.studentmanagement.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private ModuleRepository moduleRepository;
 
     public Student registerStudent(Student newStudent) {
         studentRepository.save(newStudent);
@@ -56,7 +60,9 @@ public class StudentServiceImpl implements StudentService {
 
     @Transactional
     public String deleteStudent(String admission) {
+        Student studentDetails = studentRepository.findByAdmissionNumber(admission);
         studentRepository.deleteByAdmissionNumber(admission);
-        return "Deleted the student entry with admission number: " + admission;
+        moduleRepository.deleteById(admission);
+        return "Deleted the student entry: \n".concat(studentDetails.toString());
     }
 }

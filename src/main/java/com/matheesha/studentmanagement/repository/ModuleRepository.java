@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Map;
 
-public interface ModuleRepository extends JpaRepository<Enrollment, Integer> {
+public interface ModuleRepository extends JpaRepository<Enrollment, String> {
 
     @Query(value = "SELECT d.modules FROM Enrollments d WHERE d.admission_number = :admission", nativeQuery = true)
     String getModuleCodesByAdmission(@Param("admission") String admission);
