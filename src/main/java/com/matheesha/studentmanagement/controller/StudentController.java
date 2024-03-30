@@ -43,6 +43,7 @@ public class StudentController {
     }
 
     @GetMapping("/admission")
+//    @PreAuthorize("hasAuthority('ROLE_USER')")
     public StudentDto getStudentDetailsByAdmission(@RequestParam(name = "admission") String admission) {
         return studentService.getStudentDetailsByAdmission(admission);
     }

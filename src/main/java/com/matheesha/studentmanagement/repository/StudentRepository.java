@@ -13,7 +13,7 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
     Student findByAdmissionNumber(String admission);
 
-    @Query(value = "SELECT d.name FROM Students d WHERE d.grade = :grade", nativeQuery = true)
+    @Query(value = "SELECT d.full_name FROM Students d WHERE d.grade = :grade", nativeQuery = true)
     List<String> getStudentsByGrade(@Param("grade") int grade);
 
 //    @Modifying
