@@ -63,6 +63,7 @@ public class StudentServiceImpl implements StudentService {
         Student studentDetails = studentRepository.findByAdmissionNumber(admission);
         studentRepository.deleteByAdmissionNumber(admission);
         moduleRepository.deleteById(admission);
-        return "Deleted the student entry: \n".concat(studentDetails.toString());
+//        return "Deleted the student entry: \n".concat(studentDetails.toString());
+        return "SUCCESS";
     }
 }
