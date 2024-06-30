@@ -1,0 +1,9 @@
+2024-06-30 11:19:17;Initializing Servlet 'dispatcherServlet'
+2024-06-30 11:19:17;Initializing Servlet 'dispatcherServlet'
+2024-06-30 11:19:17;Completed initialization in 2 ms
+2024-06-30 11:19:17;Completed initialization in 2 ms
+2024-06-30 11:20:29;Initializing Servlet 'dispatcherServlet'
+2024-06-30 11:20:29;Initializing Servlet 'dispatcherServlet'
+2024-06-30 11:20:29;Completed initialization in 1 ms
+2024-06-30 11:20:29;Completed initialization in 1 ms
+2024-06-30 11:20:29;New student registered: Student(id=0, firstName=Nirosha, lastName=Virajini, fullName=Nirosha Virajini, grade=13, registrationDate=Sun Jun 30 11:20:29 IST 2024, admissionNumber=N66V29)
