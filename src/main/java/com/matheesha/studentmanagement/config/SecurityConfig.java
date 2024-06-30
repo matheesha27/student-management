@@ -2,6 +2,8 @@ package com.matheesha.studentmanagement.config;
 
 import com.matheesha.studentmanagement.filters.JwtRequestFilter;
 import com.matheesha.studentmanagement.service.impl.MyUserDetailsServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -22,6 +24,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
+
+    private Logger logger = LoggerFactory.getLogger("security-log");
 
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
