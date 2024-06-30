@@ -5,6 +5,8 @@ import com.matheesha.studentmanagement.entity.Student;
 import com.matheesha.studentmanagement.service.StudentService;
 import com.matheesha.studentmanagement.util.CommonUtil;
 import com.matheesha.studentmanagement.util.DateUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,6 +25,8 @@ public class StudentController {
     @Autowired
     private CommonUtil commonUtil;
 
+    private Logger logger = LoggerFactory.getLogger("common-log");
+
     @PostMapping("/register")
     public Student registerStudent(@RequestParam(name = "first-name") String firstName,
                                    @RequestParam(name = "last-name") String lastName,
@@ -34,6 +38,7 @@ public class StudentController {
         newStudent.setGrade(grade);
         newStudent.setRegistrationDate(dateUtil.getCurrentDateTime());
         newStudent.setAdmissionNumber(commonUtil.generateAdmissionNumber(firstName, lastName));
+        logger.info("New student registered: {}", newStudent);
         return studentService.registerStudent(newStudent);
     }
 
